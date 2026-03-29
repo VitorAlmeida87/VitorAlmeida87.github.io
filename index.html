@@ -1,75 +1,836 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Vitor Almeida — Data Analyst, AI</title>
-  <meta name="description" content="Vitor Almeida — Data Analyst, AI. CV and contact links." />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vitor Almeida | Portfolio</title>
+  <meta
+    name="description"
+    content="Professional portfolio of Vitor Almeida — Machine Learning, Data Science, Computer Vision, and AI projects."
+  />
+  <style>
+    :root {
+      --bg: #f7f8fa;
+      --surface: #ffffff;
+      --text: #1e2430;
+      --muted: #5f6b7a;
+      --line: #e6eaf0;
+      --accent: #1f4b99;
+      --accent-soft: #eaf1ff;
+      --shadow: 0 10px 30px rgba(18, 35, 63, 0.08);
+      --radius: 18px;
+      --max-width: 1100px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 72px 0;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      max-width: 700px;
+      margin-bottom: 32px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(247, 248, 250, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .brand {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .hero {
+      padding: 90px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-main,
+    .hero-side {
+      padding: 34px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 700px;
+      margin-bottom: 26px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .btn-primary:hover {
+      background: #173a77;
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      background: #f2f5f9;
+      text-decoration: none;
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 8px;
+    }
+
+    .meta-box {
+      background: #f9fbfd;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
+    }
+
+    .meta-box h3 {
+      font-size: 1.2rem;
+      margin-bottom: 4px;
+      color: var(--accent);
+    }
+
+    .meta-box p {
+      margin: 0;
+      font-size: 0.92rem;
+      color: var(--muted);
+    }
+
+    .hero-side h3 {
+      font-size: 1.15rem;
+      margin-bottom: 16px;
+    }
+
+    .info-list {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+    }
+
+    .info-list li {
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .info-list li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .info-label {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 3px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 24px;
+    }
+
+    .about-card,
+    .skills-card {
+      padding: 30px;
+    }
+
+    .about-text {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .tag {
+      background: var(--accent-soft);
+      color: var(--accent);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .skills-group {
+      margin-bottom: 22px;
+    }
+
+    .skills-group:last-child {
+      margin-bottom: 0;
+    }
+
+    .skills-group h4 {
+      margin-bottom: 10px;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .skills-group p {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      padding: 24px;
+    }
+
+    .timeline-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: start;
+      gap: 16px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .timeline-top h3 {
+      font-size: 1.15rem;
+    }
+
+    .timeline-top span {
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+    }
+
+    .timeline-company {
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .project-card {
+      padding: 28px;
+    }
+
+    .project-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .education-grid,
+    .language-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .mini-card {
+      padding: 24px;
+    }
+
+    .mini-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+
+    .mini-card p {
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .contact-card {
+      padding: 34px;
+      text-align: center;
+    }
+
+    .contact-card h2 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .contact-card p {
+      color: var(--muted);
+      max-width: 650px;
+      margin: 0 auto 20px;
+    }
+
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    footer {
+      padding: 28px 0 50px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 920px) {
+      .hero-grid,
+      .about-grid,
+      .project-grid,
+      .education-grid,
+      .language-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+
+      .hero {
+        padding-top: 60px;
+      }
+
+      .hero-main,
+      .hero-side,
+      .about-card,
+      .skills-card,
+      .project-card,
+      .timeline-item,
+      .mini-card,
+      .contact-card {
+        padding: 22px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .section {
+        padding: 56px 0;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <header class="header">
-      <div class="brand">
-        <div><strong>Vitor Almeida</strong></div>
-        <div class="subtitle">Data Analyst • AI</div>
-      </div>
-
-      <nav class="nav">
-        <a href="/">Home</a>
-        <a href="/cv/">CV</a>
-        <a href="assets/cv/CV-VITORALMEIDA.pdf" download>Download PDF</a>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#home" class="brand">Vitor Almeida</a>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
+  <main id="home">
     <section class="hero">
-      <h1>Data Analyst, AI</h1>
-      <p>
-        I analyze data, build dashboards, and develop AI-driven solutions to support business decisions.
-        This page links to my CV and key profiles.
-      </p>
-
-      <div class="badges">
-        <span class="badge">Data Analysis</span>
-        <span class="badge">Machine Learning</span>
-        <span class="badge">Dashboards</span>
-        <span class="badge">Python / SQL</span>
-      </div>
-
-      <div class="ctaRow">
-        <a class="btn primary" href="/cv/">View my CV</a>
-        <a class="btn" href="assets/cv/CV-VITORALMEIDA.pdf" download>Download CV (PDF)</a>
-        <!-- Update these links -->
-        <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
-        <a class="btn" href="https://github.com/VitorAlmeida87" target="_blank" rel="noreferrer">GitHub</a>
-      </div>
-
-      <hr class="hr" />
-
-      <div class="grid2">
-        <div class="card">
-          <h2>Highlights</h2>
-          <ul class="list">
-            <li>Build clear, business-focused reports and dashboards.</li>
-            <li>Use statistics + ML to generate actionable insights.</li>
-            <li>Deliver reliable, well-documented analysis.</li>
-          </ul>
-        </div>
-
-        <div class="card">
-          <h2>Contact</h2>
+      <div class="container hero-grid">
+        <div class="hero-main card">
+          <span class="eyebrow">Machine Learning • Data Science • AI</span>
+          <h1>Vitor Gustavo Ramos de Almeida</h1>
           <p>
-            Add your email and location here (optional).
+            Machine Learning and Data Science professional with hands-on experience
+            in AI projects, logistics, and operational problem-solving. Combining
+            strong real-world responsibility with growing expertise in computer vision,
+            NLP, deep learning, and applied machine learning.
           </p>
-          <p><strong>Email:</strong> <a href="mailto:YOUR_EMAIL_HERE">YOUR_EMAIL_HERE</a></p>
-          <p><strong>Location:</strong> <span style="color:var(--muted);">YOUR_CITY, COUNTRY</span></p>
-        </div>
-      </div>
 
-      <div class="footer">
-        © <script>document.write(new Date().getFullYear())</script> Vitor Almeida
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:vigustavora@gmail.com">Email Me</a>
+            <a class="btn btn-secondary" href="https://github.com/VitorAlmeida87" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/vitor-almeida-27b4b073" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+
+          <div class="hero-meta">
+            <div class="meta-box">
+              <h3>2+</h3>
+              <p>AI and ML projects showcased publicly</p>
+            </div>
+            <div class="meta-box">
+              <h3>10+</h3>
+              <p>Years of professional experience across operations and service</p>
+            </div>
+            <div class="meta-box">
+              <h3>3</h3>
+              <p>Working languages: Portuguese, English, German</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="hero-side card">
+          <h3>Quick Profile</h3>
+          <ul class="info-list">
+            <li>
+              <span class="info-label">Location</span>
+              Hamburg, Germany
+            </li>
+            <li>
+              <span class="info-label">Email</span>
+              <a href="mailto:vigustavora@gmail.com">vigustavora@gmail.com</a>
+            </li>
+            <li>
+              <span class="info-label">Phone</span>
+              <a href="tel:+4917655973065">+49 176 55973065</a>
+            </li>
+            <li>
+              <span class="info-label">Current Role</span>
+              Truck Driver at UPS
+            </li>
+            <li>
+              <span class="info-label">Focus Areas</span>
+              Machine Learning, Computer Vision, NLP, Data Analysis
+            </li>
+            <li>
+              <span class="info-label">Driving Licenses</span>
+              B+E, C+E
+            </li>
+          </ul>
+        </aside>
       </div>
     </section>
-  </div>
+
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title">About</h2>
+        <p class="section-subtitle">
+          A concise overview of who I am, what I do, and the value I bring.
+        </p>
+
+        <div class="about-grid">
+          <div class="about-card card">
+            <p class="about-text">
+              I am building a transition from strong logistics and operations experience
+              into technology, with a focus on Machine Learning, Data Science, and AI.
+              My background has strengthened my discipline, accountability, decision-making,
+              and ability to perform under pressure. Today, I apply the same mindset to
+              data-driven problem solving, model development, and practical AI solutions.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Computer Vision</span>
+              <span class="tag">Deep Learning</span>
+              <span class="tag">NLP</span>
+              <span class="tag">Data Analysis</span>
+              <span class="tag">Logistics Optimization</span>
+            </div>
+          </div>
+
+          <div id="skills" class="skills-card card">
+            <div class="skills-group">
+              <h4>Programming</h4>
+              <p>Python, HTML, CSS, SQL</p>
+            </div>
+            <div class="skills-group">
+              <h4>Machine Learning</h4>
+              <p>scikit-learn, XGBoost, LightGBM, CatBoost, Statsmodels</p>
+            </div>
+            <div class="skills-group">
+              <h4>Deep Learning</h4>
+              <p>PyTorch, TensorFlow, Keras</p>
+            </div>
+            <div class="skills-group">
+              <h4>Data & Visualization</h4>
+              <p>NumPy, Pandas, Matplotlib, Seaborn, Plotly, Tableau</p>
+            </div>
+            <div class="skills-group">
+              <h4>AI Specialties</h4>
+              <p>Computer Vision, OCR, YOLO, CNN, Transformers, spaCy, NLTK, Llama</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="container">
+        <h2 class="section-title">Professional Experience</h2>
+        <p class="section-subtitle">
+          Professional history combining logistics, operations, customer service, and problem solving.
+        </p>
+
+        <div class="timeline">
+          <article class="timeline-item card">
+            <div class="timeline-top">
+              <div>
+                <h3>Truck Driver</h3>
+                <div class="timeline-company">UPS — Hamburg, Germany</div>
+              </div>
+              <span>2023 – Present</span>
+            </div>
+            <p>
+              Responsible for efficient route execution, delivery accuracy, vehicle checks,
+              safety compliance, and professional customer interaction in a fast-paced operational environment.
+            </p>
+          </article>
+
+          <article class="timeline-item card">
+            <div class="timeline-top">
+              <div>
+                <h3>Truck Driver</h3>
+                <div class="timeline-company">SantoseVale — Setúbal, Portugal</div>
+              </div>
+              <span>2017 – 2022</span>
+            </div>
+            <p>
+              Operated articulated trucks for regional transport, managing schedules,
+              documentation, route planning, and safe freight distribution under strict deadlines.
+            </p>
+          </article>
+
+          <article class="timeline-item card">
+            <div class="timeline-top">
+              <div>
+                <h3>Truck Driver</h3>
+                <div class="timeline-company">Ecopatrol — Setúbal, Portugal</div>
+              </div>
+              <span>2017</span>
+            </div>
+            <p>
+              Performed scheduled deliveries, vehicle inspections, cargo handling,
+              and secure loading practices, including hook and chain truck operations.
+            </p>
+          </article>
+
+          <article class="timeline-item card">
+            <div class="timeline-top">
+              <div>
+                <h3>Truck Driver</h3>
+                <div class="timeline-company">Sumol Compal — Lisbon, Portugal</div>
+              </div>
+              <span>2014 – 2017</span>
+            </div>
+            <p>
+              Distributed commercial goods across regional networks, with a strong focus
+              on timing, safety, cargo handling, and transport compliance.
+            </p>
+          </article>
+
+          <article class="timeline-item card">
+            <div class="timeline-top">
+              <div>
+                <h3>Complaint Manager</h3>
+                <div class="timeline-company">MEO Telecommunications — Lisbon, Portugal</div>
+              </div>
+              <span>2010 – 2014</span>
+            </div>
+            <p>
+              Managed customer complaints, investigated service issues, coordinated with internal teams,
+              and maintained accurate case documentation while delivering professional support.
+            </p>
+          </article>
+
+          <article class="timeline-item card">
+            <div class="timeline-top">
+              <div>
+                <h3>CEMI</h3>
+                <div class="timeline-company">MEO Telecommunications — Lisbon, Portugal</div>
+              </div>
+              <span>2007 – 2010</span>
+            </div>
+            <p>
+              Supported inbound customer communications, sales of telecom packages,
+              service quality improvement, and issue resolution using CRM and support tools.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title">Selected Projects</h2>
+        <p class="section-subtitle">
+          Applied AI and optimization projects demonstrating practical problem-solving.
+        </p>
+
+        <div class="project-grid">
+          <article class="project-card card">
+            <h3>Brain MRI Cancer Identifier</h3>
+            <p>
+              Streamlit-based application for brain MRI tumor identification and segmentation
+              using deep learning. Built to process medical imaging data and highlight tumor regions
+              for automated analysis and visualization.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/VitorAlmeida87/Brain_tumor_segmentation" target="_blank" rel="noopener noreferrer">View Project</a>
+            </div>
+          </article>
+
+          <article class="project-card card">
+            <h3>Best Match Tour-Driver</h3>
+            <p>
+              Streamlit application that optimizes driver assignment by matching drivers to tours
+              based on defined criteria and constraints, supporting logistics decision-making through
+              automated selection.
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/VitorAlmeida87/Best-match-driver-tour/tree/main" target="_blank" rel="noopener noreferrer">View Project</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="section">
+      <div class="container">
+        <h2 class="section-title">Education</h2>
+        <p class="section-subtitle">
+          Academic background and technical training.
+        </p>
+
+        <div class="education-grid">
+          <article class="mini-card card">
+            <h3>IronHack</h3>
+            <p>
+              Data Science and Machine Learning<br />
+              2025 – 2026
+            </p>
+          </article>
+
+          <article class="mini-card card">
+            <h3>Universidade de Lisboa</h3>
+            <p>
+              Asiatic Studies<br />
+              Incomplete
+            </p>
+          </article>
+
+          <article class="mini-card card">
+            <h3>Escola Secundária Alfredo da Silva</h3>
+            <p>
+              High School<br />
+              Barreiro, Portugal
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Languages & Core Competencies</h2>
+        <p class="section-subtitle">
+          Communication skills and technical focus areas.
+        </p>
+
+        <div class="language-grid">
+          <article class="mini-card card">
+            <h3>Languages</h3>
+            <p>
+              Portuguese — Native<br />
+              English — Fluent<br />
+              German — Intermediate
+            </p>
+          </article>
+
+          <article class="mini-card card">
+            <h3>Core Competencies</h3>
+            <p>
+              Machine Learning, Computer Vision, NLP, Speech Technologies,
+              Data Processing, Model Evaluation, Logistics Operations
+            </p>
+          </article>
+
+          <article class="mini-card card">
+            <h3>Tools</h3>
+            <p>
+              Git, Bash, VS Code, Office Tools, FastAPI, APIs, Windows
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="contact-card card">
+          <h2>Let’s Connect</h2>
+          <p>
+            I’m interested in opportunities related to Machine Learning, Data Science,
+            AI applications, and practical problem-solving roles where analytical thinking
+            and reliability matter.
+          </p>
+
+          <div class="contact-links">
+            <a class="btn btn-primary" href="mailto:vigustavora@gmail.com">Send Email</a>
+            <a class="btn btn-secondary" href="https://github.com/VitorAlmeida87" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/vitor-almeida-27b4b073" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Vitor Almeida. Built for GitHub Pages.</p>
+    </div>
+  </footer>
 </body>
 </html>
