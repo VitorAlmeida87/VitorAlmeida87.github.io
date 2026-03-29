@@ -1,317 +1,1036 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vitor Almeida | Machine Learning Engineer</title>
-
+  <meta
+    name="description"
+    content="Vitor Almeida - Machine Learning Engineer portfolio, projects, experience, skills and background in AI, data science, logistics and operations."
+  />
   <style>
     :root {
-      --text: #111;
-      --muted: #666;
-      --border: #e5e5e5;
       --bg: #ffffff;
-      --accent: #0a66c2;
-      --max-width: 900px;
+      --surface: #ffffff;
+      --text: #111827;
+      --muted: #5b6472;
+      --line: #e5e7eb;
+      --soft: #f8fafc;
+      --accent: #111827;
+      --accent-2: #2563eb;
+      --max-width: 1080px;
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(17, 24, 39, 0.06);
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--accent-2);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
     }
 
     .container {
-      width: 90%;
-      max-width: var(--max-width);
-      margin: auto;
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
     }
 
-    header {
-      padding: 40px 0 20px;
-      border-bottom: 1px solid var(--border);
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
     }
 
-    .top {
+    .nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
+      padding: 18px 0;
+      gap: 20px;
     }
 
-    .name {
-      font-size: 1.8rem;
+    .brand {
+      font-size: 1rem;
       font-weight: 700;
-    }
-
-    nav a {
-      margin-left: 20px;
-      text-decoration: none;
-      color: var(--muted);
-      font-weight: 500;
-    }
-
-    nav a:hover {
       color: var(--accent);
+      letter-spacing: 0.2px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      text-decoration: none;
     }
 
     .hero {
-      padding: 40px 0;
+      padding: 72px 0 56px;
+    }
+
+    .hero-grid {
       display: grid;
-      grid-template-columns: 1fr 140px;
-      gap: 30px;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 36px;
       align-items: center;
     }
 
+    .eyebrow {
+      display: inline-block;
+      padding: 7px 12px;
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
     .hero h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
+      font-size: 3rem;
+      line-height: 1.08;
+      letter-spacing: -0.04em;
+      margin-bottom: 18px;
     }
 
     .hero p {
       color: var(--muted);
-      margin-bottom: 15px;
+      font-size: 1.08rem;
+      max-width: 720px;
+      margin-bottom: 24px;
     }
 
-    .links a {
-      margin-right: 15px;
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 26px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      border: 1px solid var(--line);
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--text);
+      color: #fff;
+      border-color: var(--text);
+    }
+
+    .btn-primary:hover {
+      background: #000;
       text-decoration: none;
-      color: var(--accent);
-      font-weight: 500;
     }
 
-    .profile {
-      width: 120px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
+    .btn-secondary {
+      background: #fff;
+      color: var(--text);
     }
 
-    section {
-      padding: 40px 0;
-      border-bottom: 1px solid var(--border);
+    .btn-secondary:hover {
+      background: var(--soft);
+      text-decoration: none;
     }
 
-    h2 {
-      font-size: 1.3rem;
-      margin-bottom: 20px;
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
     }
 
-    .experience-item {
-      margin-bottom: 25px;
+    .meta-card {
+      background: var(--soft);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 16px;
     }
 
-    .job-title {
+    .meta-card strong {
+      display: block;
+      font-size: 1.2rem;
+      margin-bottom: 4px;
+    }
+
+    .meta-card span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .profile-wrap {
+      display: flex;
+      justify-content: center;
+    }
+
+    .profile-card {
+      width: 100%;
+      max-width: 360px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .profile-image {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      background: var(--soft);
+    }
+
+    .profile-info {
+      padding: 20px;
+    }
+
+    .profile-info h3 {
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+    }
+
+    .profile-info p {
+      color: var(--muted);
+      font-size: 0.96rem;
+      margin-bottom: 8px;
+    }
+
+    .section {
+      padding: 70px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-title {
+      font-size: 2rem;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      margin-bottom: 10px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      max-width: 760px;
+      margin-bottom: 30px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .highlights {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .tag {
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--text);
+      font-size: 0.92rem;
       font-weight: 600;
     }
 
+    .info-list {
+      list-style: none;
+      display: grid;
+      gap: 14px;
+    }
+
+    .info-list li {
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .info-list li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .label {
+      display: block;
+      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 18px;
+    }
+
+    .timeline-item {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 24px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .timeline-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+    }
+
+    .timeline-head h3 {
+      font-size: 1.12rem;
+      line-height: 1.3;
+    }
+
+    .timeline-head .date {
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
     .company {
-      color: var(--accent);
-      font-weight: 500;
+      color: var(--accent-2);
+      font-weight: 700;
+      margin-bottom: 12px;
     }
 
-    .date {
+    .timeline-item p {
       color: var(--muted);
-      font-size: 0.9rem;
-      margin-bottom: 5px;
+      margin-bottom: 12px;
     }
 
-    .skills-group {
-      margin-bottom: 20px;
+    .bullet-list {
+      padding-left: 18px;
+      color: var(--muted);
     }
 
-    .skills-group h4 {
-      margin-bottom: 6px;
+    .bullet-list li {
+      margin-bottom: 8px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .project-card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 26px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .project-card h3 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .project-card .small {
+      font-size: 0.94rem;
+    }
+
+    .project-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .skill-group {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 24px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .skill-group h3 {
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+    }
+
+    .skill-group p {
+      color: var(--muted);
+    }
+
+    .edu-grid,
+    .extra-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .mini-card {
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .mini-card h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .mini-card p {
+      color: var(--muted);
       font-size: 0.95rem;
     }
 
-    .skills-group p {
+    .contact-card {
+      text-align: center;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 36px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card h2 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+    }
+
+    .contact-card p {
       color: var(--muted);
-      font-size: 0.95rem;
+      max-width: 700px;
+      margin: 0 auto 22px;
     }
 
-    .project {
-      margin-bottom: 20px;
-    }
-
-    .project a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 500;
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
     footer {
-      padding: 30px 0;
-      text-align: center;
+      padding: 30px 0 50px;
       color: var(--muted);
-      font-size: 0.9rem;
+      text-align: center;
+      font-size: 0.92rem;
     }
 
-    @media(max-width: 700px) {
-      .hero {
+    @media (max-width: 980px) {
+      .hero-grid,
+      .grid-2,
+      .projects-grid,
+      .skills-grid,
+      .edu-grid,
+      .extra-grid {
         grid-template-columns: 1fr;
       }
-      .profile {
-        width: 100px;
+
+      .hero-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 2.4rem;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      .hero {
+        padding: 54px 0 42px;
+      }
+
+      .section {
+        padding: 54px 0;
+      }
+
+      .card,
+      .timeline-item,
+      .project-card,
+      .skill-group,
+      .mini-card,
+      .contact-card {
+        padding: 22px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
       }
     }
   </style>
 </head>
-
 <body>
-
-<header>
-  <div class="container top">
-    <div class="name">Vitor Almeida</div>
-    <nav>
-      <a href="#experience">Experience</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-    </nav>
-  </div>
-</header>
-
-<div class="container hero">
-  <div>
-    <h1>Machine Learning & AI Engineer</h1>
-    <p>
-      Transitioning from high-responsibility logistics operations into AI engineering,
-      specializing in machine learning, computer vision and optimization systems.
-    </p>
-
-    <div class="links">
-      <a href="mailto:vigustavora@gmail.com">Email</a>
-      <a href="https://github.com/VitorAlmeida87" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/vitor-almeida-27b4b073" target="_blank">LinkedIn</a>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#home" class="brand">Vitor Almeida</a>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-  </div>
+  </header>
 
-  <img src="profile.jpg" class="profile" alt="Profile">
-</div>
+  <main id="home">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">Machine Learning • AI • Data Science</span>
+          <h1>Machine Learning Engineer with real-world operations experience.</h1>
+          <p>
+            I combine hands-on experience in logistics, route optimization, customer-facing operations and decision-making under pressure with technical work in machine learning, computer vision, natural language processing and applied AI systems.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:vigustavora@gmail.com">Email Me</a>
+            <a class="btn btn-secondary" href="https://github.com/VitorAlmeida87" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/vitor-almeida-27b4b073" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+          <div class="hero-meta">
+            <div class="meta-card">
+              <strong>10+ years</strong>
+              <span>Experience in logistics, transportation, customer service and operational execution.</span>
+            </div>
+            <div class="meta-card">
+              <strong>AI Focus</strong>
+              <span>Machine learning, computer vision, NLP, model implementation and applied optimization.</span>
+            </div>
+            <div class="meta-card">
+              <strong>Hamburg, Germany</strong>
+              <span>Open to opportunities in AI, ML engineering, data science and technical problem-solving roles.</span>
+            </div>
+          </div>
+        </div>
 
-<section id="experience">
-  <div class="container">
-    <h2>Experience</h2>
+        <div class="profile-wrap">
+          <div class="profile-card">
+            <img src="profile.jpeg" alt="Vitor Almeida profile photo" class="profile-image" />
+            <div class="profile-info">
+              <h3>Vitor Gustavo Ramos de Almeida</h3>
+              <p>Machine Learning Engineer / AI Portfolio</p>
+              <p><strong>Email:</strong> <a href="mailto:vigustavora@gmail.com">vigustavora@gmail.com</a></p>
+              <p><strong>GitHub:</strong> <a href="https://github.com/VitorAlmeida87" target="_blank" rel="noopener noreferrer">VitorAlmeida87</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="experience-item">
-      <div class="job-title">Truck Driver — <span class="company">UPS</span></div>
-      <div class="date">2023 – Present</div>
-      <p>
-        Route optimization, logistics execution, high-value cargo responsibility,
-        real-time problem solving and operational efficiency in dynamic environments.
-      </p>
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title">About</h2>
+        <p class="section-subtitle">
+          A complete overview of my background, technical direction and what I bring to engineering and AI-focused teams.
+        </p>
+
+        <div class="grid-2">
+          <div class="card about-text">
+            <p>
+              My background is built on responsibility, precision, consistency and execution. Over the years I worked in transportation, logistics and customer operations, where reliability, time management, route planning, safety, coordination and real-world problem solving were essential every day.
+            </p>
+            <p>
+              I am now applying that same mindset to technology, especially machine learning and AI. My work focuses on building practical systems, understanding data, implementing models, and creating solutions that are useful, robust and oriented toward real problems.
+            </p>
+            <p>
+              I am particularly interested in machine learning engineering, computer vision, NLP, optimization systems and AI products where technical depth and operational thinking both matter.
+            </p>
+
+            <div class="highlights">
+              <span class="tag">Machine Learning</span>
+              <span class="tag">Computer Vision</span>
+              <span class="tag">NLP</span>
+              <span class="tag">Deep Learning</span>
+              <span class="tag">Optimization</span>
+              <span class="tag">Data Analysis</span>
+            </div>
+          </div>
+
+          <div class="card">
+            <ul class="info-list">
+              <li>
+                <span class="label">Full Name</span>
+                Vitor Gustavo Ramos de Almeida
+              </li>
+              <li>
+                <span class="label">Location</span>
+                Hamburg, Germany
+              </li>
+              <li>
+                <span class="label">Email</span>
+                <a href="mailto:vigustavora@gmail.com">vigustavora@gmail.com</a>
+              </li>
+              <li>
+                <span class="label">Phone</span>
+                <a href="tel:+4917655973065">+49 176 55973065</a>
+              </li>
+              <li>
+                <span class="label">LinkedIn</span>
+                <a href="https://www.linkedin.com/in/vitor-almeida-27b4b073" target="_blank" rel="noopener noreferrer">linkedin.com/in/vitor-almeida-27b4b073</a>
+              </li>
+              <li>
+                <span class="label">GitHub</span>
+                <a href="https://github.com/VitorAlmeida87" target="_blank" rel="noopener noreferrer">github.com/VitorAlmeida87</a>
+              </li>
+              <li>
+                <span class="label">Driving Licenses</span>
+                B+E, C+E
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <div class="container">
+        <h2 class="section-title">Professional Experience</h2>
+        <p class="section-subtitle">
+          Full experience history, including logistics, transportation and customer operations roles that developed strong execution, accountability and practical problem-solving skills.
+        </p>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <div class="timeline-head">
+              <div>
+                <h3>Truck Driver</h3>
+                <div class="company">UPS — Hamburg, Germany</div>
+              </div>
+              <div class="date">2023 – Present</div>
+            </div>
+            <p>
+              Responsible for efficient deliveries, route execution, operational reliability and customer-facing service in a dynamic, real-world logistics environment.
+            </p>
+            <ul class="bullet-list">
+              <li>Route planning and optimization to ensure efficient and timely deliveries.</li>
+              <li>Operational problem solving in dynamic real-world environments.</li>
+              <li>Navigation and logistics coordination across urban delivery routes.</li>
+              <li>Vehicle inspection and preventive maintenance checks.</li>
+              <li>Safety compliance and adherence to transportation regulations.</li>
+              <li>Customer interaction and professional service during deliveries.</li>
+              <li>Stress management and decision making under time pressure.</li>
+              <li>Responsibility for high-value cargo and delivery accuracy.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-head">
+              <div>
+                <h3>Truck Driver</h3>
+                <div class="company">SantoseVale — Setúbal, Portugal</div>
+              </div>
+              <div class="date">2017 – 2022</div>
+            </div>
+            <p>
+              Worked in regional freight operations involving articulated trucks, compliance, trip planning, delivery deadlines and documentation accuracy.
+            </p>
+            <ul class="bullet-list">
+              <li>Operation of articulated trucks with C+E license for regional transport.</li>
+              <li>Route planning and navigation for efficient freight distribution.</li>
+              <li>Vehicle inspection and preventive maintenance checks before and after trips.</li>
+              <li>Time management to meet strict delivery schedules and logistics deadlines.</li>
+              <li>Safe handling and transportation practices.</li>
+              <li>Accurate documentation of deliveries, transport records and compliance reports.</li>
+              <li>Adaptability to changing routes, schedules and operational requirements.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-head">
+              <div>
+                <h3>Truck Driver</h3>
+                <div class="company">Ecopatrol — Setúbal, Portugal</div>
+              </div>
+              <div class="date">2017</div>
+            </div>
+            <p>
+              Focused on delivery execution, vehicle safety and cargo handling.
+            </p>
+            <ul class="bullet-list">
+              <li>Route navigation and efficient trip planning for scheduled deliveries.</li>
+              <li>Vehicle inspection and basic maintenance checks to ensure road safety.</li>
+              <li>Cargo handling and secure loading practices.</li>
+              <li>Hook and Chain Truck and Hook Truck experience.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-head">
+              <div>
+                <h3>Truck Driver</h3>
+                <div class="company">Sumol Compal — Lisbon, Portugal</div>
+              </div>
+              <div class="date">2014 – 2017</div>
+            </div>
+            <p>
+              Managed commercial goods distribution and reliable route execution across regional networks.
+            </p>
+            <ul class="bullet-list">
+              <li>Distribution of commercial goods across regional delivery networks.</li>
+              <li>Route planning and efficient navigation for scheduled deliveries.</li>
+              <li>Loading and unloading of cargo with proper load securing procedures.</li>
+              <li>Compliance with road safety and transportation regulations.</li>
+              <li>Vehicle inspection and preventive maintenance checks.</li>
+              <li>Time management to ensure reliable delivery schedules.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-head">
+              <div>
+                <h3>Complaint Manager</h3>
+                <div class="company">MEO Telecommunications — Lisbon, Portugal</div>
+              </div>
+              <div class="date">2010 – 2014</div>
+            </div>
+            <p>
+              Managed complaint resolution, issue investigation and coordination across teams while maintaining service quality and professional communication.
+            </p>
+            <ul class="bullet-list">
+              <li>Handling and resolution of customer complaints and service issues.</li>
+              <li>Investigation and analysis of reported technical or service problems.</li>
+              <li>Communication with customers to clarify issues and provide solutions.</li>
+              <li>Coordination with internal departments to resolve service disruptions.</li>
+              <li>Documentation and tracking of customer cases and resolution processes.</li>
+              <li>Problem solving and decision making in high-pressure situations.</li>
+              <li>Customer relationship management and service quality improvement.</li>
+              <li>Conflict resolution and professional communication with clients.</li>
+              <li>Maintaining accurate records of support interactions and outcomes.</li>
+            </ul>
+          </article>
+
+          <article class="timeline-item">
+            <div class="timeline-head">
+              <div>
+                <h3>CEMI</h3>
+                <div class="company">MEO Telecommunications — Lisbon, Portugal</div>
+              </div>
+              <div class="date">2007 – 2010</div>
+            </div>
+            <p>
+              Supported inbound customer service, solution recommendation, telecom package sales and service improvement using CRM and internal systems.
+            </p>
+            <ul class="bullet-list">
+              <li>Handling inbound customer inquiries regarding telecommunications services and products.</li>
+              <li>Providing solutions and recommendations based on customer needs.</li>
+              <li>Sales of telecommunications packages including internet, television and mobile services.</li>
+              <li>Customer relationship management and service quality improvement.</li>
+              <li>Problem solving and resolution of customer issues and service requests.</li>
+              <li>Working with CRM systems and internal support tools.</li>
+              <li>Achieving sales and service performance targets.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-subtitle">
+          Current public work and portfolio-style technical projects, described in a more complete and professional way.
+        </p>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <h3>Brain MRI Cancer Identifier</h3>
+            <p>
+              Streamlit-based deep learning application for brain MRI tumor identification and segmentation. The project processes medical imaging data, detects relevant regions and supports automated visual analysis of tumor areas.
+            </p>
+            <p class="small">
+              <strong>Focus:</strong> Deep Learning, Medical Imaging, Computer Vision, Segmentation, Streamlit
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/VitorAlmeida87/Brain_tumor_segmentation" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <h3>Best Match Tour-Driver</h3>
+            <p>
+              Streamlit application designed to optimize driver assignment by matching drivers to tours based on predefined criteria and constraints. It reflects a practical use of optimization logic and decision support for logistics operations.
+            </p>
+            <p class="small">
+              <strong>Focus:</strong> Optimization, Logistics, Decision Support, Python, Streamlit
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/VitorAlmeida87/Best-match-driver-tour/tree/main" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <h3>Computer Vision Portfolio Work</h3>
+            <p>
+              Broader portfolio direction involving detection, segmentation and OCR-oriented workflows using tools such as YOLO, CNN architectures, TorchVision and image processing pipelines. This area reflects my interest in practical computer vision systems for real-world applications.
+            </p>
+            <p class="small">
+              <strong>Focus:</strong> YOLO, OCR, CNN, TorchVision, Detection, Segmentation
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/VitorAlmeida87" target="_blank" rel="noopener noreferrer">View GitHub Profile</a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <h3>NLP and Applied AI Work</h3>
+            <p>
+              Ongoing work and study in NLP and applied AI using transformers, spaCy, NLTK and LLM-related tooling. This includes text understanding, semantic processing and building practical machine learning systems that can extract value from unstructured data.
+            </p>
+            <p class="small">
+              <strong>Focus:</strong> Transformers, spaCy, NLTK, LLMs, Text Processing
+            </p>
+            <div class="project-links">
+              <a href="https://github.com/VitorAlmeida87" target="_blank" rel="noopener noreferrer">View GitHub Profile</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section">
+      <div class="container">
+        <h2 class="section-title">Technical Skills</h2>
+        <p class="section-subtitle">
+          Full skill set structured clearly, including programming, machine learning, deep learning, data, NLP, computer vision and tooling.
+        </p>
+
+        <div class="skills-grid">
+          <div class="skill-group">
+            <h3>Programming Languages</h3>
+            <p>Python, HTML, CSS</p>
+          </div>
+
+          <div class="skill-group">
+            <h3>Machine Learning</h3>
+            <p>scikit-learn, XGBoost, LightGBM, CatBoost, Statsmodels</p>
+          </div>
+
+          <div class="skill-group">
+            <h3>Deep Learning</h3>
+            <p>PyTorch, TensorFlow, Keras</p>
+          </div>
+
+          <div class="skill-group">
+            <h3>Data Analysis</h3>
+            <p>NumPy, Pandas</p>
+          </div>
+
+          <div class="skill-group">
+            <h3>Data Visualization</h3>
+            <p>Matplotlib, Seaborn, Plotly, Tableau, SQL</p>
+          </div>
+
+          <div class="skill-group">
+            <h3>Computer Vision</h3>
+            <p>TorchVision, Mask R-CNN, CNN, YOLO, OCR</p>
+          </div>
+
+          <div class="skill-group">
+            <h3>Natural Language Processing</h3>
+            <p>Hugging Face Transformers, spaCy, NLTK, Llama</p>
+          </div>
+
+          <div class="skill-group">
+            <h3>Deployment and APIs</h3>
+            <p>FastAPI, APIs</p>
+          </div>
+
+          <div class="skill-group">
+            <h3>Tools</h3>
+            <p>Git, Bash, VS Code, Office Tools</p>
+          </div>
+
+          <div class="skill-group">
+            <h3>Operating Systems</h3>
+            <p>Windows</p>
+          </div>
+
+          <div class="skill-group">
+            <h3>Core Competencies</h3>
+            <p>Machine Learning, Computer Vision, Natural Language Processing, Speech Recognition, Text to Speech / Speech to Text, Data Analysis and Data Processing, Model Implementation and Evaluation, Professional Driving Experience</p>
+          </div>
+
+          <div class="skill-group">
+            <h3>Professional Strengths</h3>
+            <p>Route planning, logistics coordination, compliance, operational discipline, customer communication, documentation accuracy, decision making under pressure and execution reliability</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="education" class="section">
+      <div class="container">
+        <h2 class="section-title">Education</h2>
+        <p class="section-subtitle">
+          Academic background and technical training.
+        </p>
+
+        <div class="edu-grid">
+          <article class="mini-card">
+            <h3>IronHack</h3>
+            <p>
+              Data Science and Machine Learning<br />
+              2025 – 2026
+            </p>
+          </article>
+
+          <article class="mini-card">
+            <h3>Faculdade de Letras da Universidade de Lisboa</h3>
+            <p>
+              Asiatic Studies<br />
+              Incomplete
+            </p>
+          </article>
+
+          <article class="mini-card">
+            <h3>Escola Secundária Alfredo da Silva</h3>
+            <p>
+              High School<br />
+              Barreiro, Portugal<br />
+              Completed 12th Grade
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Languages & Additional Information</h2>
+        <p class="section-subtitle">
+          Languages, licenses and complementary profile details.
+        </p>
+
+        <div class="extra-grid">
+          <article class="mini-card">
+            <h3>Languages</h3>
+            <p>
+              Portuguese — Native<br />
+              English — Fluent<br />
+              German — Intermediate
+            </p>
+          </article>
+
+          <article class="mini-card">
+            <h3>Driving Licenses</h3>
+            <p>
+              B+E<br />
+              C+E
+            </p>
+          </article>
+
+          <article class="mini-card">
+            <h3>Professional Profile</h3>
+            <p>
+              Reliable, disciplined and practical, with a strong operational background and a clear transition into AI, machine learning and technical problem solving.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="contact-card">
+          <h2>Contact</h2>
+          <p>
+            I am interested in opportunities in machine learning, AI engineering, computer vision, NLP, data science and technical roles where analytical thinking, reliability and execution matter.
+          </p>
+          <div class="contact-links">
+            <a class="btn btn-primary" href="mailto:vigustavora@gmail.com">Email</a>
+            <a class="btn btn-secondary" href="https://github.com/VitorAlmeida87" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/vitor-almeida-27b4b073" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Vitor Almeida
     </div>
-
-    <div class="experience-item">
-      <div class="job-title">Truck Driver — <span class="company">SantoseVale</span></div>
-      <div class="date">2017 – 2022</div>
-      <p>
-        Regional freight operations, schedule optimization, compliance and logistics coordination.
-      </p>
-    </div>
-
-    <div class="experience-item">
-      <div class="job-title">Truck Driver — <span class="company">Ecopatrol</span></div>
-      <div class="date">2017</div>
-      <p>Route planning, cargo handling and operational safety.</p>
-    </div>
-
-    <div class="experience-item">
-      <div class="job-title">Truck Driver — <span class="company">Sumol Compal</span></div>
-      <div class="date">2014 – 2017</div>
-      <p>Distribution logistics, scheduling and delivery operations.</p>
-    </div>
-
-    <div class="experience-item">
-      <div class="job-title">Complaint Manager — <span class="company">MEO</span></div>
-      <div class="date">2010 – 2014</div>
-      <p>
-        Customer problem resolution, data tracking, system diagnostics and communication.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section id="projects">
-  <div class="container">
-    <h2>Projects</h2>
-
-    <div class="project">
-      <strong>Brain MRI Tumor Segmentation</strong><br>
-      Deep learning system using CNNs for medical imaging segmentation.<br>
-      <a href="https://github.com/VitorAlmeida87/Brain_tumor_segmentation" target="_blank">GitHub</a>
-    </div>
-
-    <div class="project">
-      <strong>Driver Assignment Optimization</strong><br>
-      Constraint-based system for logistics optimization.<br>
-      <a href="https://github.com/VitorAlmeida87/Best-match-driver-tour" target="_blank">GitHub</a>
-    </div>
-
-    <div class="project">
-      <strong>Computer Vision Systems</strong><br>
-      YOLO, OCR and real-world detection pipelines.
-    </div>
-
-    <div class="project">
-      <strong>NLP Systems</strong><br>
-      Transformer-based text processing and classification systems.
-    </div>
-
-  </div>
-</section>
-
-<section id="skills">
-  <div class="container">
-    <h2>Skills</h2>
-
-    <div class="skills-group">
-      <h4>Programming</h4>
-      <p>Python, SQL, HTML, CSS</p>
-    </div>
-
-    <div class="skills-group">
-      <h4>Machine Learning</h4>
-      <p>scikit-learn, XGBoost, LightGBM, CatBoost, Statsmodels</p>
-    </div>
-
-    <div class="skills-group">
-      <h4>Deep Learning</h4>
-      <p>PyTorch, TensorFlow, Keras</p>
-    </div>
-
-    <div class="skills-group">
-      <h4>Data & Visualization</h4>
-      <p>NumPy, Pandas, Matplotlib, Seaborn, Plotly, Tableau</p>
-    </div>
-
-    <div class="skills-group">
-      <h4>AI Specializations</h4>
-      <p>Computer Vision, YOLO, CNN, OCR, NLP, Transformers, spaCy, NLTK, LLMs</p>
-    </div>
-
-    <div class="skills-group">
-      <h4>Tools</h4>
-      <p>Git, Bash, VS Code, FastAPI, APIs</p>
-    </div>
-
-  </div>
-</section>
-
-<footer>
-  <div class="container">
-    © 2026 Vitor Almeida
-  </div>
-</footer>
-
-</body>
-</html>
   </footer>
 </body>
 </html>
