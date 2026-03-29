@@ -6,21 +6,20 @@
   <title>Vitor Almeida | Machine Learning Engineer</title>
   <meta
     name="description"
-    content="Vitor Almeida - Machine Learning Engineer portfolio, projects, experience, skills and background in AI, data science, logistics and operations."
+    content="Vitor Almeida - Machine Learning Engineer portfolio with experience, projects, and technical skills in AI, data science, computer vision, NLP, and optimization."
   />
   <style>
     :root {
       --bg: #ffffff;
       --surface: #ffffff;
       --text: #111827;
-      --muted: #5b6472;
+      --muted: #6b7280;
       --line: #e5e7eb;
       --soft: #f8fafc;
-      --accent: #111827;
-      --accent-2: #2563eb;
+      --accent: #2563eb;
       --max-width: 1080px;
       --radius: 18px;
-      --shadow: 0 10px 30px rgba(17, 24, 39, 0.06);
+      --shadow: 0 10px 30px rgba(17, 24, 39, 0.05);
     }
 
     * {
@@ -41,7 +40,7 @@
     }
 
     a {
-      color: var(--accent-2);
+      color: var(--accent);
       text-decoration: none;
     }
 
@@ -63,7 +62,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.94);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--line);
     }
@@ -72,14 +71,14 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 18px 0;
       gap: 20px;
+      padding: 18px 0;
     }
 
     .brand {
       font-size: 1rem;
       font-weight: 700;
-      color: var(--accent);
+      color: var(--text);
       letter-spacing: 0.2px;
     }
 
@@ -106,7 +105,7 @@
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.3fr 0.7fr;
+      grid-template-columns: 1.25fr 0.75fr;
       gap: 36px;
       align-items: center;
     }
@@ -118,7 +117,7 @@
       border: 1px solid var(--line);
       border-radius: 999px;
       color: var(--muted);
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       font-weight: 700;
       margin-bottom: 18px;
     }
@@ -134,14 +133,13 @@
       color: var(--muted);
       font-size: 1.08rem;
       max-width: 720px;
-      margin-bottom: 24px;
+      margin-bottom: 26px;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-bottom: 26px;
     }
 
     .btn {
@@ -176,43 +174,14 @@
       text-decoration: none;
     }
 
-    .hero-meta {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-
-    .meta-card {
-      background: var(--soft);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 16px;
-    }
-
-    .meta-card strong {
-      display: block;
-      font-size: 1.2rem;
-      margin-bottom: 4px;
-    }
-
-    .meta-card span {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    .profile-wrap {
-      display: flex;
-      justify-content: center;
-    }
-
     .profile-card {
-      width: 100%;
-      max-width: 360px;
       background: var(--surface);
       border: 1px solid var(--line);
       border-radius: 22px;
       box-shadow: var(--shadow);
       overflow: hidden;
+      max-width: 360px;
+      margin-left: auto;
     }
 
     .profile-image {
@@ -234,7 +203,6 @@
     .profile-info p {
       color: var(--muted);
       font-size: 0.96rem;
-      margin-bottom: 8px;
     }
 
     .section {
@@ -291,38 +259,15 @@
       font-weight: 600;
     }
 
-    .info-list {
-      list-style: none;
-      display: grid;
-      gap: 14px;
-    }
-
-    .info-list li {
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .info-list li:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .label {
-      display: block;
-      color: var(--muted);
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 4px;
-    }
-
     .timeline {
       display: grid;
       gap: 18px;
     }
 
-    .timeline-item {
+    .timeline-item,
+    .project-card,
+    .skill-group,
+    .mini-card {
       border: 1px solid var(--line);
       border-radius: 18px;
       padding: 24px;
@@ -344,7 +289,7 @@
       line-height: 1.3;
     }
 
-    .timeline-head .date {
+    .date {
       color: var(--muted);
       font-weight: 700;
       font-size: 0.95rem;
@@ -352,112 +297,61 @@
     }
 
     .company {
-      color: var(--accent-2);
+      color: var(--accent);
       font-weight: 700;
       margin-bottom: 12px;
     }
 
-    .timeline-item p {
+    .timeline-item p,
+    .project-card p,
+    .skill-group p,
+    .mini-card p {
       color: var(--muted);
-      margin-bottom: 12px;
     }
 
     .bullet-list {
       padding-left: 18px;
       color: var(--muted);
+      margin-top: 12px;
     }
 
     .bullet-list li {
       margin-bottom: 8px;
     }
 
-    .projects-grid {
+    .projects-grid,
+    .skills-grid,
+    .edu-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 22px;
     }
 
-    .project-card {
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 26px;
-      background: var(--surface);
-      box-shadow: var(--shadow);
-    }
-
-    .project-card h3 {
-      font-size: 1.15rem;
+    .project-card h3,
+    .skill-group h3,
+    .mini-card h3 {
+      font-size: 1.05rem;
       margin-bottom: 10px;
-    }
-
-    .project-card p {
-      color: var(--muted);
-      margin-bottom: 14px;
-    }
-
-    .project-card .small {
-      font-size: 0.94rem;
     }
 
     .project-links {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
+      margin-top: 14px;
     }
 
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 22px;
-    }
-
-    .skill-group {
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 24px;
-      background: var(--surface);
-      box-shadow: var(--shadow);
-    }
-
-    .skill-group h3 {
-      font-size: 1.05rem;
-      margin-bottom: 10px;
-    }
-
-    .skill-group p {
-      color: var(--muted);
-    }
-
-    .edu-grid,
     .extra-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
 
-    .mini-card {
-      border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 22px;
-      background: var(--surface);
-      box-shadow: var(--shadow);
-    }
-
-    .mini-card h3 {
-      font-size: 1rem;
-      margin-bottom: 8px;
-    }
-
-    .mini-card p {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
     .contact-card {
       text-align: center;
       border: 1px solid var(--line);
       border-radius: 22px;
-      padding: 36px;
+      padding: 38px;
       background: var(--surface);
       box-shadow: var(--shadow);
     }
@@ -469,8 +363,30 @@
 
     .contact-card p {
       color: var(--muted);
-      max-width: 700px;
-      margin: 0 auto 22px;
+      max-width: 740px;
+      margin: 0 auto 24px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      max-width: 760px;
+      margin: 0 auto 24px;
+      text-align: left;
+    }
+
+    .contact-item {
+      padding: 16px 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--soft);
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 0.92rem;
     }
 
     .contact-links {
@@ -493,16 +409,17 @@
       .projects-grid,
       .skills-grid,
       .edu-grid,
-      .extra-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-meta {
+      .extra-grid,
+      .contact-grid {
         grid-template-columns: 1fr;
       }
 
       .hero h1 {
-        font-size: 2.4rem;
+        font-size: 2.35rem;
+      }
+
+      .profile-card {
+        margin: 0;
       }
     }
 
@@ -512,16 +429,16 @@
         align-items: flex-start;
       }
 
-      .nav-links {
-        gap: 14px;
-      }
-
       .hero {
-        padding: 54px 0 42px;
+        padding: 56px 0 42px;
       }
 
       .section {
         padding: 54px 0;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
       }
 
       .card,
@@ -531,10 +448,6 @@
       .mini-card,
       .contact-card {
         padding: 22px;
-      }
-
-      .hero h1 {
-        font-size: 2rem;
       }
     }
   </style>
@@ -559,40 +472,21 @@
       <div class="container hero-grid">
         <div>
           <span class="eyebrow">Machine Learning • AI • Data Science</span>
-          <h1>Machine Learning Engineer with real-world operations experience.</h1>
+          <h1>Building practical AI with a strong real-world operations background.</h1>
           <p>
-            I combine hands-on experience in logistics, route optimization, customer-facing operations and decision-making under pressure with technical work in machine learning, computer vision, natural language processing and applied AI systems.
+            I combine logistics, transportation, customer-facing execution and operational discipline with hands-on work in machine learning, computer vision, NLP, optimization and applied AI systems.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-primary" href="mailto:vigustavora@gmail.com">Email Me</a>
-            <a class="btn btn-secondary" href="https://github.com/VitorAlmeida87" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a class="btn btn-secondary" href="https://www.linkedin.com/in/vitor-almeida-27b4b073" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          </div>
-          <div class="hero-meta">
-            <div class="meta-card">
-              <strong>10+ years</strong>
-              <span>Experience in logistics, transportation, customer service and operational execution.</span>
-            </div>
-            <div class="meta-card">
-              <strong>AI Focus</strong>
-              <span>Machine learning, computer vision, NLP, model implementation and applied optimization.</span>
-            </div>
-            <div class="meta-card">
-              <strong>Hamburg, Germany</strong>
-              <span>Open to opportunities in AI, ML engineering, data science and technical problem-solving roles.</span>
-            </div>
+            <a class="btn btn-primary" href="#projects">View Projects</a>
+            <a class="btn btn-secondary" href="#contact">Contact</a>
           </div>
         </div>
 
-        <div class="profile-wrap">
-          <div class="profile-card">
-            <img src="profile.jpeg" alt="Vitor Almeida profile photo" class="profile-image" />
-            <div class="profile-info">
-              <h3>Vitor Gustavo Ramos de Almeida</h3>
-              <p>Machine Learning Engineer / AI Portfolio</p>
-              <p><strong>Email:</strong> <a href="mailto:vigustavora@gmail.com">vigustavora@gmail.com</a></p>
-              <p><strong>GitHub:</strong> <a href="https://github.com/VitorAlmeida87" target="_blank" rel="noopener noreferrer">VitorAlmeida87</a></p>
-            </div>
+        <div class="profile-card">
+          <img src="profile.jpeg" alt="Vitor Almeida profile photo" class="profile-image" />
+          <div class="profile-info">
+            <h3>Vitor Gustavo Ramos de Almeida</h3>
+            <p>Machine Learning Engineer / AI Portfolio</p>
           </div>
         </div>
       </div>
@@ -602,19 +496,19 @@
       <div class="container">
         <h2 class="section-title">About</h2>
         <p class="section-subtitle">
-          A complete overview of my background, technical direction and what I bring to engineering and AI-focused teams.
+          A concise overview of my background, technical direction and the value I bring to engineering and AI-focused teams.
         </p>
 
         <div class="grid-2">
           <div class="card about-text">
             <p>
-              My background is built on responsibility, precision, consistency and execution. Over the years I worked in transportation, logistics and customer operations, where reliability, time management, route planning, safety, coordination and real-world problem solving were essential every day.
+              My background was built in logistics, transportation and customer operations, where reliability, precision, route planning, compliance, communication and decision-making under pressure were essential every day.
             </p>
             <p>
-              I am now applying that same mindset to technology, especially machine learning and AI. My work focuses on building practical systems, understanding data, implementing models, and creating solutions that are useful, robust and oriented toward real problems.
+              I now apply that same mindset to technology, focusing on machine learning, computer vision, NLP, optimization and building practical systems that solve real problems.
             </p>
             <p>
-              I am particularly interested in machine learning engineering, computer vision, NLP, optimization systems and AI products where technical depth and operational thinking both matter.
+              I am especially interested in AI work that connects technical implementation with operational usefulness.
             </p>
 
             <div class="highlights">
@@ -628,36 +522,16 @@
           </div>
 
           <div class="card">
-            <ul class="info-list">
-              <li>
-                <span class="label">Full Name</span>
-                Vitor Gustavo Ramos de Almeida
-              </li>
-              <li>
-                <span class="label">Location</span>
-                Hamburg, Germany
-              </li>
-              <li>
-                <span class="label">Email</span>
-                <a href="mailto:vigustavora@gmail.com">vigustavora@gmail.com</a>
-              </li>
-              <li>
-                <span class="label">Phone</span>
-                <a href="tel:+4917655973065">+49 176 55973065</a>
-              </li>
-              <li>
-                <span class="label">LinkedIn</span>
-                <a href="https://www.linkedin.com/in/vitor-almeida-27b4b073" target="_blank" rel="noopener noreferrer">linkedin.com/in/vitor-almeida-27b4b073</a>
-              </li>
-              <li>
-                <span class="label">GitHub</span>
-                <a href="https://github.com/VitorAlmeida87" target="_blank" rel="noopener noreferrer">github.com/VitorAlmeida87</a>
-              </li>
-              <li>
-                <span class="label">Driving Licenses</span>
-                B+E, C+E
-              </li>
-            </ul>
+            <h3 style="margin-bottom: 14px;">Profile Summary</h3>
+            <p style="color: var(--muted); margin-bottom: 12px;">
+              Based in Hamburg, with more than 10 years of professional experience across logistics, transportation and customer service.
+            </p>
+            <p style="color: var(--muted); margin-bottom: 12px;">
+              Currently developing a strong portfolio in AI, machine learning and data-driven problem solving.
+            </p>
+            <p style="color: var(--muted);">
+              Languages: Portuguese, English and German. Driving licenses: B+E and C+E.
+            </p>
           </div>
         </div>
       </div>
@@ -667,7 +541,7 @@
       <div class="container">
         <h2 class="section-title">Professional Experience</h2>
         <p class="section-subtitle">
-          Full experience history, including logistics, transportation and customer operations roles that developed strong execution, accountability and practical problem-solving skills.
+          Experience that shaped strong execution, responsibility and practical problem-solving.
         </p>
 
         <div class="timeline">
@@ -679,18 +553,12 @@
               </div>
               <div class="date">2023 – Present</div>
             </div>
-            <p>
-              Responsible for efficient deliveries, route execution, operational reliability and customer-facing service in a dynamic, real-world logistics environment.
-            </p>
+            <p>Efficient delivery execution, urban route coordination, safety compliance and customer-facing reliability in fast-paced logistics operations.</p>
             <ul class="bullet-list">
-              <li>Route planning and optimization to ensure efficient and timely deliveries.</li>
-              <li>Operational problem solving in dynamic real-world environments.</li>
-              <li>Navigation and logistics coordination across urban delivery routes.</li>
-              <li>Vehicle inspection and preventive maintenance checks.</li>
-              <li>Safety compliance and adherence to transportation regulations.</li>
-              <li>Customer interaction and professional service during deliveries.</li>
-              <li>Stress management and decision making under time pressure.</li>
-              <li>Responsibility for high-value cargo and delivery accuracy.</li>
+              <li>Route planning and optimization for timely deliveries</li>
+              <li>Operational problem solving in dynamic environments</li>
+              <li>Vehicle inspection and preventive maintenance checks</li>
+              <li>High-value cargo responsibility and delivery accuracy</li>
             </ul>
           </article>
 
@@ -702,17 +570,12 @@
               </div>
               <div class="date">2017 – 2022</div>
             </div>
-            <p>
-              Worked in regional freight operations involving articulated trucks, compliance, trip planning, delivery deadlines and documentation accuracy.
-            </p>
+            <p>Regional freight transport, documentation accuracy, compliance and schedule-sensitive logistics coordination.</p>
             <ul class="bullet-list">
-              <li>Operation of articulated trucks with C+E license for regional transport.</li>
-              <li>Route planning and navigation for efficient freight distribution.</li>
-              <li>Vehicle inspection and preventive maintenance checks before and after trips.</li>
-              <li>Time management to meet strict delivery schedules and logistics deadlines.</li>
-              <li>Safe handling and transportation practices.</li>
-              <li>Accurate documentation of deliveries, transport records and compliance reports.</li>
-              <li>Adaptability to changing routes, schedules and operational requirements.</li>
+              <li>Operation of articulated trucks with C+E license</li>
+              <li>Freight distribution and route planning</li>
+              <li>Time management for strict delivery deadlines</li>
+              <li>Transport records and compliance reporting</li>
             </ul>
           </article>
 
@@ -724,15 +587,7 @@
               </div>
               <div class="date">2017</div>
             </div>
-            <p>
-              Focused on delivery execution, vehicle safety and cargo handling.
-            </p>
-            <ul class="bullet-list">
-              <li>Route navigation and efficient trip planning for scheduled deliveries.</li>
-              <li>Vehicle inspection and basic maintenance checks to ensure road safety.</li>
-              <li>Cargo handling and secure loading practices.</li>
-              <li>Hook and Chain Truck and Hook Truck experience.</li>
-            </ul>
+            <p>Delivery execution, cargo handling and road safety support.</p>
           </article>
 
           <article class="timeline-item">
@@ -743,17 +598,7 @@
               </div>
               <div class="date">2014 – 2017</div>
             </div>
-            <p>
-              Managed commercial goods distribution and reliable route execution across regional networks.
-            </p>
-            <ul class="bullet-list">
-              <li>Distribution of commercial goods across regional delivery networks.</li>
-              <li>Route planning and efficient navigation for scheduled deliveries.</li>
-              <li>Loading and unloading of cargo with proper load securing procedures.</li>
-              <li>Compliance with road safety and transportation regulations.</li>
-              <li>Vehicle inspection and preventive maintenance checks.</li>
-              <li>Time management to ensure reliable delivery schedules.</li>
-            </ul>
+            <p>Commercial goods distribution, route execution and transport compliance.</p>
           </article>
 
           <article class="timeline-item">
@@ -764,20 +609,7 @@
               </div>
               <div class="date">2010 – 2014</div>
             </div>
-            <p>
-              Managed complaint resolution, issue investigation and coordination across teams while maintaining service quality and professional communication.
-            </p>
-            <ul class="bullet-list">
-              <li>Handling and resolution of customer complaints and service issues.</li>
-              <li>Investigation and analysis of reported technical or service problems.</li>
-              <li>Communication with customers to clarify issues and provide solutions.</li>
-              <li>Coordination with internal departments to resolve service disruptions.</li>
-              <li>Documentation and tracking of customer cases and resolution processes.</li>
-              <li>Problem solving and decision making in high-pressure situations.</li>
-              <li>Customer relationship management and service quality improvement.</li>
-              <li>Conflict resolution and professional communication with clients.</li>
-              <li>Maintaining accurate records of support interactions and outcomes.</li>
-            </ul>
+            <p>Customer complaint resolution, issue investigation, documentation and coordination across internal teams.</p>
           </article>
 
           <article class="timeline-item">
@@ -788,18 +620,7 @@
               </div>
               <div class="date">2007 – 2010</div>
             </div>
-            <p>
-              Supported inbound customer service, solution recommendation, telecom package sales and service improvement using CRM and internal systems.
-            </p>
-            <ul class="bullet-list">
-              <li>Handling inbound customer inquiries regarding telecommunications services and products.</li>
-              <li>Providing solutions and recommendations based on customer needs.</li>
-              <li>Sales of telecommunications packages including internet, television and mobile services.</li>
-              <li>Customer relationship management and service quality improvement.</li>
-              <li>Problem solving and resolution of customer issues and service requests.</li>
-              <li>Working with CRM systems and internal support tools.</li>
-              <li>Achieving sales and service performance targets.</li>
-            </ul>
+            <p>Inbound support, telecom sales, service problem resolution and CRM-based customer interaction.</p>
           </article>
         </div>
       </div>
@@ -809,17 +630,14 @@
       <div class="container">
         <h2 class="section-title">Projects</h2>
         <p class="section-subtitle">
-          Current public work and portfolio-style technical projects, described in a more complete and professional way.
+          Technical work focused on practical AI, optimization and applied machine learning.
         </p>
 
         <div class="projects-grid">
           <article class="project-card">
             <h3>Brain MRI Cancer Identifier</h3>
             <p>
-              Streamlit-based deep learning application for brain MRI tumor identification and segmentation. The project processes medical imaging data, detects relevant regions and supports automated visual analysis of tumor areas.
-            </p>
-            <p class="small">
-              <strong>Focus:</strong> Deep Learning, Medical Imaging, Computer Vision, Segmentation, Streamlit
+              Streamlit-based deep learning application for brain MRI tumor identification and segmentation, designed to support automated medical image analysis and visualization.
             </p>
             <div class="project-links">
               <a href="https://github.com/VitorAlmeida87/Brain_tumor_segmentation" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
@@ -829,10 +647,7 @@
           <article class="project-card">
             <h3>Best Match Tour-Driver</h3>
             <p>
-              Streamlit application designed to optimize driver assignment by matching drivers to tours based on predefined criteria and constraints. It reflects a practical use of optimization logic and decision support for logistics operations.
-            </p>
-            <p class="small">
-              <strong>Focus:</strong> Optimization, Logistics, Decision Support, Python, Streamlit
+              Driver assignment and logistics optimization application that matches drivers to tours using defined constraints and selection criteria.
             </p>
             <div class="project-links">
               <a href="https://github.com/VitorAlmeida87/Best-match-driver-tour/tree/main" target="_blank" rel="noopener noreferrer">GitHub Repository</a>
@@ -842,10 +657,7 @@
           <article class="project-card">
             <h3>Computer Vision Portfolio Work</h3>
             <p>
-              Broader portfolio direction involving detection, segmentation and OCR-oriented workflows using tools such as YOLO, CNN architectures, TorchVision and image processing pipelines. This area reflects my interest in practical computer vision systems for real-world applications.
-            </p>
-            <p class="small">
-              <strong>Focus:</strong> YOLO, OCR, CNN, TorchVision, Detection, Segmentation
+              Broader work in detection, segmentation and OCR-oriented workflows using YOLO, CNN architectures, TorchVision and image processing pipelines.
             </p>
             <div class="project-links">
               <a href="https://github.com/VitorAlmeida87" target="_blank" rel="noopener noreferrer">View GitHub Profile</a>
@@ -855,10 +667,7 @@
           <article class="project-card">
             <h3>NLP and Applied AI Work</h3>
             <p>
-              Ongoing work and study in NLP and applied AI using transformers, spaCy, NLTK and LLM-related tooling. This includes text understanding, semantic processing and building practical machine learning systems that can extract value from unstructured data.
-            </p>
-            <p class="small">
-              <strong>Focus:</strong> Transformers, spaCy, NLTK, LLMs, Text Processing
+              Ongoing exploration of transformers, spaCy, NLTK and LLM-related tooling for text understanding, semantic processing and applied AI systems.
             </p>
             <div class="project-links">
               <a href="https://github.com/VitorAlmeida87" target="_blank" rel="noopener noreferrer">View GitHub Profile</a>
@@ -872,7 +681,7 @@
       <div class="container">
         <h2 class="section-title">Technical Skills</h2>
         <p class="section-subtitle">
-          Full skill set structured clearly, including programming, machine learning, deep learning, data, NLP, computer vision and tooling.
+          A structured view of my technical stack and professional strengths.
         </p>
 
         <div class="skills-grid">
@@ -912,28 +721,18 @@
           </div>
 
           <div class="skill-group">
-            <h3>Deployment and APIs</h3>
-            <p>FastAPI, APIs</p>
-          </div>
-
-          <div class="skill-group">
-            <h3>Tools</h3>
-            <p>Git, Bash, VS Code, Office Tools</p>
-          </div>
-
-          <div class="skill-group">
-            <h3>Operating Systems</h3>
-            <p>Windows</p>
+            <h3>Deployment and Tools</h3>
+            <p>FastAPI, APIs, Git, Bash, VS Code, Office Tools</p>
           </div>
 
           <div class="skill-group">
             <h3>Core Competencies</h3>
-            <p>Machine Learning, Computer Vision, Natural Language Processing, Speech Recognition, Text to Speech / Speech to Text, Data Analysis and Data Processing, Model Implementation and Evaluation, Professional Driving Experience</p>
+            <p>Machine Learning, Computer Vision, NLP, Speech Recognition, Text to Speech / Speech to Text, Model Implementation and Evaluation</p>
           </div>
 
           <div class="skill-group">
             <h3>Professional Strengths</h3>
-            <p>Route planning, logistics coordination, compliance, operational discipline, customer communication, documentation accuracy, decision making under pressure and execution reliability</p>
+            <p>Operational discipline, route planning, logistics coordination, documentation accuracy, customer communication and decision making under pressure</p>
           </div>
         </div>
       </div>
@@ -949,62 +748,32 @@
         <div class="edu-grid">
           <article class="mini-card">
             <h3>IronHack</h3>
-            <p>
-              Data Science and Machine Learning<br />
-              2025 – 2026
-            </p>
+            <p>Data Science and Machine Learning<br>2025 – 2026</p>
           </article>
 
           <article class="mini-card">
             <h3>Faculdade de Letras da Universidade de Lisboa</h3>
-            <p>
-              Asiatic Studies<br />
-              Incomplete
-            </p>
+            <p>Asiatic Studies<br>Incomplete</p>
           </article>
 
           <article class="mini-card">
             <h3>Escola Secundária Alfredo da Silva</h3>
-            <p>
-              High School<br />
-              Barreiro, Portugal<br />
-              Completed 12th Grade
-            </p>
+            <p>High School<br>Barreiro, Portugal<br>Completed 12th Grade</p>
           </article>
-        </div>
-      </div>
-    </section>
 
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title">Languages & Additional Information</h2>
-        <p class="section-subtitle">
-          Languages, licenses and complementary profile details.
-        </p>
-
-        <div class="extra-grid">
           <article class="mini-card">
             <h3>Languages</h3>
-            <p>
-              Portuguese — Native<br />
-              English — Fluent<br />
-              German — Intermediate
-            </p>
+            <p>Portuguese — Native<br>English — Fluent<br>German — Intermediate</p>
           </article>
 
           <article class="mini-card">
             <h3>Driving Licenses</h3>
-            <p>
-              B+E<br />
-              C+E
-            </p>
+            <p>B+E<br>C+E</p>
           </article>
 
           <article class="mini-card">
-            <h3>Professional Profile</h3>
-            <p>
-              Reliable, disciplined and practical, with a strong operational background and a clear transition into AI, machine learning and technical problem solving.
-            </p>
+            <h3>Professional Direction</h3>
+            <p>Focused on ML engineering, AI systems, computer vision, NLP and practical optimization work.</p>
           </article>
         </div>
       </div>
@@ -1015,8 +784,41 @@
         <div class="contact-card">
           <h2>Contact</h2>
           <p>
-            I am interested in opportunities in machine learning, AI engineering, computer vision, NLP, data science and technical roles where analytical thinking, reliability and execution matter.
+            This is the only place where contact and profile details appear, to keep the site cleaner and avoid repetition.
           </p>
+
+          <div class="contact-grid">
+            <div class="contact-item">
+              <strong>Email</strong>
+              <a href="mailto:vigustavora@gmail.com">vigustavora@gmail.com</a>
+            </div>
+
+            <div class="contact-item">
+              <strong>LinkedIn</strong>
+              <a href="https://www.linkedin.com/in/vitor-almeida-27b4b073" target="_blank" rel="noopener noreferrer">linkedin.com/in/vitor-almeida-27b4b073</a>
+            </div>
+
+            <div class="contact-item">
+              <strong>GitHub</strong>
+              <a href="https://github.com/VitorAlmeida87" target="_blank" rel="noopener noreferrer">github.com/VitorAlmeida87</a>
+            </div>
+
+            <div class="contact-item">
+              <strong>Location</strong>
+              Hamburg, Germany
+            </div>
+
+            <div class="contact-item">
+              <strong>Phone</strong>
+              <a href="tel:+4917655973065">+49 176 55973065</a>
+            </div>
+
+            <div class="contact-item">
+              <strong>Availability</strong>
+              Open to opportunities in AI, ML engineering, data science and technical problem-solving roles
+            </div>
+          </div>
+
           <div class="contact-links">
             <a class="btn btn-primary" href="mailto:vigustavora@gmail.com">Email</a>
             <a class="btn btn-secondary" href="https://github.com/VitorAlmeida87" target="_blank" rel="noopener noreferrer">GitHub</a>
