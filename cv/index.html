@@ -208,6 +208,7 @@
     .badge-opt  { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
     .badge-cv   { background: #fefce8; color: #a16207; border: 1px solid #fde68a; }
     .badge-sport { background: #f0f9ff; color: #0369a1; border: 1px solid #bae6fd; }
+    .badge-bio  { background: #f0fdf4; color: #166534; border: 1px solid #86efac; }
  
     .github-link {
       display: inline-flex;
@@ -284,7 +285,7 @@
     <nav class="nav-links">
       <a href="../index.html#about">About</a>
       <a href="../index.html#experience">Experience</a>
-      <a href="projects.html" class="active">Projects</a>
+      <a href="./" class="active">Projects</a>
       <a href="../index.html#skills">Skills</a>
       <a href="../index.html#education">Education</a>
       <a href="../index.html#contact">Contact</a>
@@ -620,7 +621,65 @@
           </div>
         </article>
  
+        <!-- 10. Bird Sound -->
+        <article class="project-card">
+          <div>
+            <div class="project-num">Project 10</div>
+            <h2>Bird Sound Species Classification — Pantanal Bioacoustics Pipeline</h2>
+            <p class="description">
+              End-to-end deep learning pipeline for bird species identification from audio recordings in the Brazilian Pantanal — combining audio feature extraction, sound event detection and multi-class classification with ResNet18.
+            </p>
+            <ul class="bullet-list">
+              <li>Built a bird sound isolation pipeline to detect and segment species vocalisations from raw ambient field recordings using energy-based and spectral methods</li>
+              <li>Extracted mel-spectrogram representations from isolated audio segments as 2D image inputs to the classifier</li>
+              <li>Trained a Sound Event Detection (SED) model with ResNet18 backbone, Focal Loss (γ=2.0) and power-law subsampling (exponent=-0.5, 50% of samples per epoch)</li>
+              <li>Applied a two-phase fine-tuning strategy: frozen backbone for epochs 1–2 (head-only warmup), then full end-to-end fine-tuning from epoch 3 onward</li>
+              <li>Best checkpoint (epoch 10): Val Accuracy 64.1%, Macro F1 0.561, Weighted F1 0.645</li>
+              <li>Developed a production notebook and a modular classifier package with configurable checkpointing and evaluation utilities</li>
+            </ul>
+            <div class="tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">PyTorch</span>
+              <span class="tech-tag">ResNet18</span>
+              <span class="tech-tag">Focal Loss</span>
+              <span class="tech-tag">Librosa</span>
+              <span class="tech-tag">Mel-Spectrogram</span>
+              <span class="tech-tag">NumPy</span>
+              <span class="tech-tag">Pandas</span>
+              <span class="tech-tag">Jupyter Notebook</span>
+            </div>
+          </div>
+          <div class="project-meta">
+            <span class="category-badge badge-dl">Deep Learning</span>
+            <span class="category-badge badge-bio">Bioacoustics</span>
+            <a class="github-link" href="https://github.com/VitorAlmeida87/Bird-Sound-Project" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </article>
+
       </div><!-- /projects-list -->
+
+      <!-- Stats bar -->
+      <div class="stats-bar">
+        <div class="stat-item">
+          <div class="stat-number">10</div>
+          <div class="stat-label">End-to-end projects</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">5</div>
+          <div class="stat-label">Domains covered</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">92.7%</div>
+          <div class="stat-label">Best NLP accuracy</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">97%</div>
+          <div class="stat-label">Best classification accuracy</div>
+        </div>
+      </div>
     </div>
   </section>
 </main>
