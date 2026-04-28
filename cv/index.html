@@ -285,7 +285,7 @@
     <nav class="nav-links">
       <a href="../index.html#about">About</a>
       <a href="../index.html#experience">Experience</a>
-      <a href="index.html" class="active">Projects</a>
+      <a href="./" class="active">Projects</a>
       <a href="../index.html#skills">Skills</a>
       <a href="../index.html#education">Education</a>
       <a href="../index.html#contact">Contact</a>
@@ -632,7 +632,7 @@
             <ul class="bullet-list">
               <li>Built a bird sound isolation pipeline to detect and segment species vocalisations from raw ambient field recordings using energy-based and spectral methods</li>
               <li>Extracted mel-spectrogram representations from isolated audio segments as 2D image inputs to the classifier</li>
-              <li>Trained a Sound Event Detection (SED) model with ResNet18 backbone, Focal Loss (γ=2.0) and power-law subsampling (exponent=−0.5, 50% of samples per epoch)</li>
+              <li>Trained a Sound Event Detection (SED) model with ResNet18 backbone, Focal Loss (γ=2.0) and power-law subsampling (exponent=-0.5, 50% of samples per epoch)</li>
               <li>Applied a two-phase fine-tuning strategy: frozen backbone for epochs 1–2 (head-only warmup), then full end-to-end fine-tuning from epoch 3 onward</li>
               <li>Best checkpoint (epoch 10): Val Accuracy 64.1%, Macro F1 0.561, Weighted F1 0.645</li>
               <li>Developed a production notebook and a modular classifier package with configurable checkpointing and evaluation utilities</li>
