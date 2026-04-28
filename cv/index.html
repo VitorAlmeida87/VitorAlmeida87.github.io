@@ -1,30 +1,638 @@
-<!doctype html>
+
+Copiar
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CV — Vitor Almeida</title>
-  <link rel="stylesheet" href="../assets/css/style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects | Vitor Almeida — Machine Learning Engineer</title>
+  <meta
+    name="description"
+    content="Detailed project portfolio of Vitor Almeida — Machine Learning, Deep Learning, NLP, Computer Vision, and Optimization projects."
+  />
   <style>
-    main { max-width: 980px; margin: 24px auto; padding: 0 16px; }
-    .viewer { width: 100%; height: 85vh; border: 1px solid #e5e7eb; border-radius: 10px; }
-    .actions { display:flex; gap:12px; flex-wrap:wrap; margin: 12px 0 18px; }
-    .btn { padding: 10px 14px; border: 1px solid #e5e7eb; border-radius: 10px; text-decoration:none; color:#111827; background:#f9fafb; }
-    .btn.primary { background:#eff6ff; border-color:#c7d2fe; color:#1d4ed8; font-weight:600; }
+    :root {
+      --bg: #ffffff;
+      --surface: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --soft: #f8fafc;
+      --accent: #2563eb;
+      --max-width: 1080px;
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(17, 24, 39, 0.05);
+    }
+ 
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif;
+      line-height: 1.65;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+ 
+    .container { width: min(92%, var(--max-width)); margin: 0 auto; }
+ 
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+ 
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      padding: 18px 0;
+    }
+ 
+    .brand {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: 0.2px;
+    }
+ 
+    .nav-links { display: flex; flex-wrap: wrap; gap: 20px; }
+    .nav-links a { color: var(--muted); font-size: 0.95rem; font-weight: 600; }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+    .nav-links a.active { color: var(--accent); }
+ 
+    /* Page header */
+    .page-hero {
+      padding: 60px 0 44px;
+      border-bottom: 1px solid var(--line);
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+    .back-link:hover { color: var(--text); text-decoration: none; }
+    .back-link svg { width: 14px; height: 14px; }
+    .page-hero h1 {
+      font-size: 2.6rem;
+      line-height: 1.1;
+      letter-spacing: -0.04em;
+      margin-bottom: 14px;
+    }
+    .page-hero p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      max-width: 680px;
+    }
+ 
+    /* Filter tags */
+    .filter-bar {
+      padding: 28px 0 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .filter-label { color: var(--muted); font-size: 0.88rem; font-weight: 700; margin-right: 4px; }
+    .filter-tag {
+      padding: 7px 14px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.15s;
+      user-select: none;
+    }
+    .filter-tag:hover, .filter-tag.active {
+      background: var(--text);
+      color: #fff;
+      border-color: var(--text);
+    }
+ 
+    /* Projects grid */
+    .projects-section { padding: 32px 0 80px; }
+    .projects-list { display: grid; gap: 28px; }
+ 
+    .project-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 32px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: start;
+      transition: box-shadow 0.2s;
+    }
+    .project-card:hover {
+      box-shadow: 0 16px 40px rgba(17, 24, 39, 0.09);
+    }
+ 
+    .project-num {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+ 
+    .project-card h2 {
+      font-size: 1.28rem;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+    }
+ 
+    .project-card .description {
+      color: var(--muted);
+      font-size: 0.97rem;
+      margin-bottom: 18px;
+    }
+ 
+    .bullet-list {
+      padding-left: 18px;
+      color: var(--muted);
+      margin-bottom: 18px;
+      font-size: 0.95rem;
+    }
+    .bullet-list li { margin-bottom: 7px; }
+ 
+    .tech-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .tech-tag {
+      padding: 5px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--soft);
+      color: var(--text);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+ 
+    .project-meta {
+      min-width: 140px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-end;
+    }
+ 
+    .category-badge {
+      padding: 6px 13px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+    }
+ 
+    .badge-dl   { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+    .badge-ml   { background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0; }
+    .badge-nlp  { background: #fdf4ff; color: #7e22ce; border: 1px solid #e9d5ff; }
+    .badge-opt  { background: #fff7ed; color: #c2410c; border: 1px solid #fed7aa; }
+    .badge-cv   { background: #fefce8; color: #a16207; border: 1px solid #fde68a; }
+    .badge-sport { background: #f0f9ff; color: #0369a1; border: 1px solid #bae6fd; }
+ 
+    .github-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 16px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      font-size: 0.87rem;
+      font-weight: 700;
+      color: var(--text);
+      background: var(--soft);
+      transition: 0.15s;
+      white-space: nowrap;
+    }
+    .github-link:hover {
+      background: var(--text);
+      color: #fff;
+      border-color: var(--text);
+      text-decoration: none;
+    }
+    .github-link svg { width: 15px; height: 15px; flex-shrink: 0; }
+ 
+    /* Stats row */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      padding: 32px 0 0;
+      border-top: 1px solid var(--line);
+      margin-top: 10px;
+    }
+    .stat-item {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 20px 22px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .stat-item .stat-number {
+      font-size: 1.9rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-item .stat-label { color: var(--muted); font-size: 0.88rem; }
+ 
+    footer {
+      padding: 30px 0 50px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.92rem;
+      border-top: 1px solid var(--line);
+    }
+ 
+    @media (max-width: 760px) {
+      .project-card { grid-template-columns: 1fr; }
+      .project-meta { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
+      .page-hero h1 { font-size: 2rem; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 500px) {
+      .nav { flex-direction: column; align-items: flex-start; }
+      .stats-bar { grid-template-columns: 1fr 1fr; }
+    }
   </style>
 </head>
 <body>
-  <main>
-    <h1>Curriculum Vitae</h1>
-    <p>View the PDF below or download it.</p>
-
-    <div class="actions">
-      <a class="btn primary" href="../assets/cv/CV-VITORALMEIDA.pdf" download>Download CV (PDF)</a>
-      <a class="btn" href="../assets/cv/CV-VITORALMEIDA.pdf" target="_blank" rel="noreferrer">Open in new tab</a>
-      <a class="btn" href="/">Back to home</a>
+ 
+<header class="topbar">
+  <div class="container nav">
+    <a href="../index.html" class="brand">Vitor Almeida</a>
+    <nav class="nav-links">
+      <a href="../index.html#about">About</a>
+      <a href="../index.html#experience">Experience</a>
+      <a href="projects.html" class="active">Projects</a>
+      <a href="../index.html#skills">Skills</a>
+      <a href="../index.html#education">Education</a>
+      <a href="../index.html#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+ 
+<main>
+  <section class="page-hero">
+    <div class="container">
+      <a href="../index.html" class="back-link">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M10 12L6 8l4-4"/>
+        </svg>
+        Back to CV
+      </a>
+      <h1>Project Portfolio</h1>
+      <p>End-to-end machine learning projects spanning deep learning, predictive modelling, NLP, computer vision, and operational research — built from scratch with production-oriented pipelines.</p>
     </div>
-
-    <iframe class="viewer" src="../assets/cv/CV-VITORALMEIDA.pdf" title="CV PDF"></iframe>
-  </main>
+  </section>
+ 
+  <section class="projects-section">
+    <div class="container">
+ 
+ 
+      <div class="projects-list">
+ 
+        <!-- 1. Brain Tumor -->
+        <article class="project-card">
+          <div>
+            <div class="project-num">Project 01</div>
+            <h2>Brain Tumor Segmentation — MRI Deep Learning Pipeline</h2>
+            <p class="description">
+              End-to-end deep learning system for automated brain tumor segmentation using the BraTS 2020 multimodal MRI dataset from 19 institutions — covering neuroimaging preprocessing through interactive inference.
+            </p>
+            <ul class="bullet-list">
+              <li>Processed four MRI modalities (T1, T1ce, T2, FLAIR) as volumetric inputs, co-registered to a standard anatomical template at 1&nbsp;mm³ resolution</li>
+              <li>Built and trained a U-Net convolutional architecture to segment three tumour sub-regions: GD-enhancing tumour (ET), peritumoral edema (ED), and necrotic/non-enhancing core (NCR/NET)</li>
+              <li>Defined custom evaluation metrics including Dice coefficient, precision, sensitivity, specificity, and per-class Dice scores</li>
+              <li>Implemented a custom DataGenerator with 5-fold train/validation/test splits and configurable callbacks for checkpointing</li>
+              <li>Deployed as a Streamlit web application accepting PNG, JPG and NIfTI files for real-time tumour probability inference</li>
+            </ul>
+            <div class="tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">TensorFlow/Keras</span>
+              <span class="tech-tag">U-Net</span>
+              <span class="tech-tag">NiBabel</span>
+              <span class="tech-tag">Nilearn</span>
+              <span class="tech-tag">scikit-image</span>
+              <span class="tech-tag">OpenCV</span>
+              <span class="tech-tag">Streamlit</span>
+              <span class="tech-tag">NumPy</span>
+              <span class="tech-tag">Pandas</span>
+            </div>
+          </div>
+          <div class="project-meta">
+            <span class="category-badge badge-dl">Deep Learning</span>
+            <span class="category-badge badge-cv">Computer Vision</span>
+            <a class="github-link" href="https://github.com/VitorAlmeida87/Brain_tumor_segmentation" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </article>
+ 
+        <!-- 2. Rossmann -->
+        <article class="project-card">
+          <div>
+            <div class="project-num">Project 02</div>
+            <h2>Rossmann Store Sales Forecasting</h2>
+            <p class="description">
+              Tackled the Kaggle Rossmann Store Sales competition — building a robust sales forecasting model for 1,115 drug stores across Germany, predicting six weeks of daily sales.
+            </p>
+            <ul class="bullet-list">
+              <li>Conducted thorough EDA covering sales distributions, seasonality, promotional impact and competitor analysis across store categories (A–D)</li>
+              <li>Engineered rich temporal features including rolling statistics (mean, median, harmonic mean), lag features and Promo2 calendar features</li>
+              <li>Built a Scikit-learn Pipeline with ColumnTransformer for automated preprocessing ensuring reproducibility</li>
+              <li>Trained an XGBoost Regressor (600 estimators, depth 8, LR 0.05), evaluated with the competition's RMSPE metric</li>
+              <li>Delivered a final submission file compliant with Kaggle's format</li>
+            </ul>
+            <div class="tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">XGBoost</span>
+              <span class="tech-tag">Scikit-learn</span>
+              <span class="tech-tag">Pandas</span>
+              <span class="tech-tag">NumPy</span>
+              <span class="tech-tag">Seaborn</span>
+              <span class="tech-tag">Matplotlib</span>
+              <span class="tech-tag">Jupyter Notebook</span>
+            </div>
+          </div>
+          <div class="project-meta">
+            <span class="category-badge badge-ml">Machine Learning</span>
+            <a class="github-link" href="https://github.com/VitorAlmeida87/Rossman_finalproject" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </article>
+ 
+        <!-- 3. Predictive Maintenance -->
+        <article class="project-card">
+          <div>
+            <div class="project-num">Project 03</div>
+            <h2>Predictive Maintenance — IoT Device Failure Prediction</h2>
+            <p class="description">
+              Machine learning model predicting probability of failure for a fleet of industrial IoT devices transmitting daily sensor telemetry — simulating a real-world condition monitoring use case for manufacturing and logistics.
+            </p>
+            <ul class="bullet-list">
+              <li>Performed comprehensive EDA on time-series sensor readings, including missing value treatment, distribution analysis and failure rate investigation</li>
+              <li>Framed as a binary classification task, engineering features from raw telemetry to model fault precursors</li>
+              <li>Evaluated predictive performance with classification metrics, validating the model's ability to flag at-risk devices ahead of failure</li>
+            </ul>
+            <div class="tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Scikit-learn</span>
+              <span class="tech-tag">Pandas</span>
+              <span class="tech-tag">NumPy</span>
+              <span class="tech-tag">Matplotlib</span>
+              <span class="tech-tag">Seaborn</span>
+              <span class="tech-tag">Jupyter Notebook</span>
+            </div>
+          </div>
+          <div class="project-meta">
+            <span class="category-badge badge-ml">Machine Learning</span>
+            <a class="github-link" href="https://github.com/VitorAlmeida87/Proj_Predictive_Maintenance_Dataset" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </article>
+ 
+        <!-- 4. Best Match Driver -->
+        <article class="project-card">
+          <div>
+            <div class="project-num">Project 04</div>
+            <h2>Best Match Driver–Tour Assignment System</h2>
+            <p class="description">
+              Intelligent logistics dispatch system that optimally matches drivers to delivery tours using Operations Research techniques, with a practical web interface for dispatchers.
+            </p>
+            <ul class="bullet-list">
+              <li>Applied the Hungarian Algorithm to compute globally optimal driver–tour assignments based on driver experience profiles, maximising operational suitability across all pairs simultaneously</li>
+              <li>Implemented manual override capability, allowing dispatchers to intervene and reassign based on real-world context (driver absence, vehicle issues, scheduling conflicts)</li>
+              <li>Built a temporary availability flagging system for both drivers and tours, reflecting live operational constraints</li>
+              <li>Developed both a Jupyter-based analysis notebook and a production-ready Streamlit application with CSV-driven data input</li>
+            </ul>
+            <div class="tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">SciPy (Hungarian)</span>
+              <span class="tech-tag">Streamlit</span>
+              <span class="tech-tag">Pandas</span>
+              <span class="tech-tag">Jupyter Notebook</span>
+            </div>
+          </div>
+          <div class="project-meta">
+            <span class="category-badge badge-opt">Optimization</span>
+            <a class="github-link" href="https://github.com/VitorAlmeida87/Best-match-driver-tour" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </article>
+ 
+        <!-- 5. Image Classification -->
+        <article class="project-card">
+          <div>
+            <div class="project-num">Project 05</div>
+            <h2>Image Classification with Transfer Learning (CIFAR-10)</h2>
+            <p class="description">
+              Computer vision classifier on the CIFAR-10 benchmark (10 classes, 60,000 images) using transfer learning with pre-trained ImageNet weights — achieving ~85% test accuracy.
+            </p>
+            <ul class="bullet-list">
+              <li>Applied MobileNetV2 (ImageNet pre-trained) as a frozen feature extractor, adding a custom dense head (Dense 128 → Dropout 0.5 → Softmax 10) for classification</li>
+              <li>Pre-processed inputs via bilinear resizing (32×32 → 96×96) and MobileNetV2-specific normalisation</li>
+              <li>Trained for 30 epochs with Adam optimiser and categorical cross-entropy loss — Precision: 0.852, Recall: 0.852, F1: 0.852</li>
+              <li>Analysed results with confusion matrices and classification reports</li>
+            </ul>
+            <div class="tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">TensorFlow/Keras</span>
+              <span class="tech-tag">MobileNetV2</span>
+              <span class="tech-tag">Scikit-learn</span>
+              <span class="tech-tag">NumPy</span>
+              <span class="tech-tag">Matplotlib</span>
+              <span class="tech-tag">Seaborn</span>
+            </div>
+          </div>
+          <div class="project-meta">
+            <span class="category-badge badge-cv">Computer Vision</span>
+            <span class="category-badge badge-dl">Deep Learning</span>
+            <a class="github-link" href="https://github.com/VitorAlmeida87/Project_imageClassification" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </article>
+ 
+        <!-- 6. Irrigation -->
+        <article class="project-card">
+          <div>
+            <div class="project-num">Project 06</div>
+            <h2>Irrigation Needs Classification — Neural Network Pipeline</h2>
+            <p class="description">
+              Multi-class classification pipeline predicting crop irrigation requirements (Low / Medium / High) from agro-environmental sensor data — achieving 97% accuracy with a custom neural network.
+            </p>
+            <ul class="bullet-list">
+              <li>EDA covering soil parameters (pH, moisture, organic carbon, electrical conductivity), weather variables, crop type, growth stage and region</li>
+              <li>Engineered interaction, ratio and aggregation features across numerical and categorical domains</li>
+              <li>Designed an Embedding + MLP neural network processing categorical variables through learnable embeddings for richer representations</li>
+              <li>Trained with 5-fold stratified cross-validation to ensure robust evaluation across class distributions</li>
+              <li>Generated a Kaggle-format submission file for competition benchmarking</li>
+            </ul>
+            <div class="tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">TensorFlow/Keras</span>
+              <span class="tech-tag">Scikit-learn</span>
+              <span class="tech-tag">Pandas</span>
+              <span class="tech-tag">NumPy</span>
+              <span class="tech-tag">Matplotlib</span>
+              <span class="tech-tag">Seaborn</span>
+            </div>
+          </div>
+          <div class="project-meta">
+            <span class="category-badge badge-dl">Deep Learning</span>
+            <a class="github-link" href="https://github.com/VitorAlmeida87/irrigation_needs" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </article>
+ 
+        <!-- 7. Customer Churn -->
+        <article class="project-card">
+          <div>
+            <div class="project-num">Project 07</div>
+            <h2>Customer Churn Prediction — Ensemble Modelling</h2>
+            <p class="description">
+              2026 Kaggle Playground Series challenge — predicting customer churn likelihood through a stacking ensemble combining multiple classifiers for robust binary classification.
+            </p>
+            <ul class="bullet-list">
+              <li>EDA on telecom customer features (contract type, internet service, monthly charges, tenure) with interaction feature engineering and removal of redundant/collinear columns</li>
+              <li>Trained and hyperparameter-tuned a LightGBM classifier using RandomizedSearchCV with StratifiedKFold cross-validation</li>
+              <li>Assembled a Stacking Classifier combining LightGBM, Random Forest, and Logistic Regression as the meta-learner</li>
+              <li>Evaluated with accuracy, precision, recall, F1-score, ROC-AUC and confusion matrix</li>
+            </ul>
+            <div class="tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">LightGBM</span>
+              <span class="tech-tag">Scikit-learn</span>
+              <span class="tech-tag">Random Forest</span>
+              <span class="tech-tag">Logistic Regression</span>
+              <span class="tech-tag">Pandas</span>
+              <span class="tech-tag">Matplotlib</span>
+            </div>
+          </div>
+          <div class="project-meta">
+            <span class="category-badge badge-ml">Machine Learning</span>
+            <a class="github-link" href="https://github.com/VitorAlmeida87/Costumer_churn" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </article>
+ 
+        <!-- 8. Soccer -->
+        <article class="project-card">
+          <div>
+            <div class="project-num">Project 08</div>
+            <h2>Soccer Tactical Feature Engineering (SkillCorner Broadcast Tracking)</h2>
+            <p class="description">
+              Rich match-level tactical feature set engineered from SkillCorner broadcast tracking data (10 A-League 2024/25 matches), capturing structural and behavioural dimensions of football teams beyond traditional outcome statistics.
+            </p>
+            <ul class="bullet-list">
+              <li>Aggregated dynamic event and phases-of-play data into a single-row-per-(match, team) feature matrix of 40+ attributes across four tactical dimensions</li>
+              <li>Possession phase volumes &amp; durations (build-up, create, finish, quick-break, transition); off-ball run counts by type (in behind, coming short, overlap, pulling wide)</li>
+              <li>Progressive passing structure (forward passes, line-breaking opportunities, passes into the box, total passing distance)</li>
+              <li>Collective pressing behaviour (pressing chain counts and chain lengths)</li>
+              <li>Developed an original "line-breaking opportunity" feature counting pass options capable of bypassing defensive lines — regardless of whether the passer chose to play them</li>
+              <li>Documented results, methodology and next steps — published tutorials across four learning paths with MkDocs Material</li>
+            </ul>
+            <div class="tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">Pandas</span>
+              <span class="tech-tag">NumPy</span>
+              <span class="tech-tag">Matplotlib</span>
+              <span class="tech-tag">Seaborn</span>
+              <span class="tech-tag">Jupyter Notebook</span>
+              <span class="tech-tag">MkDocs Material</span>
+              <span class="tech-tag">SkillCorner API</span>
+            </div>
+          </div>
+          <div class="project-meta">
+            <span class="category-badge badge-sport">Sports Analytics</span>
+            <a class="github-link" href="https://github.com/VitorAlmeida87/Soccer-Feature-Engineering" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </article>
+ 
+        <!-- 9. Fake News -->
+        <article class="project-card">
+          <div>
+            <div class="project-num">Project 09</div>
+            <h2>Fake News Detection — NLP Classification</h2>
+            <p class="description">
+              NLP pipeline classifying news headlines as real or fake, systematically comparing multiple text representations and machine learning classifiers — achieving 92.7% accuracy on a 6,831-sample test set.
+            </p>
+            <ul class="bullet-list">
+              <li>Full NLP preprocessing pipeline: lowercasing, punctuation removal, tokenization, lemmatization, POS tagging and stopword filtering (NLTK)</li>
+              <li>Generated three distinct feature representations: Bag of Words, TF-IDF and POS-tagged n-grams (bigrams)</li>
+              <li>Trained and benchmarked Random Forest and Multinomial Naive Bayes classifiers across all feature types</li>
+              <li>Best result: Random Forest + TF-IDF — 92.7% accuracy (Precision: 0.934, Recall: 0.914, F1: 0.924)</li>
+              <li>Delivered final predictions on held-out test data with structured presentation of findings</li>
+            </ul>
+            <div class="tech-stack">
+              <span class="tech-tag">Python</span>
+              <span class="tech-tag">NLTK</span>
+              <span class="tech-tag">Scikit-learn</span>
+              <span class="tech-tag">TF-IDF</span>
+              <span class="tech-tag">CountVectorizer</span>
+              <span class="tech-tag">Random Forest</span>
+              <span class="tech-tag">Naive Bayes</span>
+              <span class="tech-tag">Pandas</span>
+            </div>
+          </div>
+          <div class="project-meta">
+            <span class="category-badge badge-nlp">NLP</span>
+            <a class="github-link" href="https://github.com/VitorAlmeida87/project-3-nlp" target="_blank" rel="noopener noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+              GitHub
+            </a>
+          </div>
+        </article>
+ 
+      </div><!-- /projects-list -->
+    </div>
+  </section>
+</main>
+ 
+<footer>
+  <div class="container">
+    © 2026 Vitor Almeida · <a href="../index.html">Back to CV</a>
+  </div>
+</footer>
+ 
 </body>
 </html>
